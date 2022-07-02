@@ -1,0 +1,71 @@
+
+打开流程
+https://cs50.harvard.edu/x/2022/psets/1/hello/
+你好
+开始
+回想一下，Visual Studio Code（又名VS Code）是一个流行的“集成开发环境”（IDE），您可以通过它编写代码。为了不用下载、安装和配置你自己的 VS Code 副本，我们将改用基于云的版本，该版本预装了你需要的所有内容。
+使用您的 GitHub 帐户登录 code.cs50.io。加载“代码空间”后，应会看到默认情况下，VS Code 分为三个区域。VS Code的顶部是您的“文本编辑器”，您可以在其中编写所有程序。底部是一个“终端窗口”，这是一个命令行界面（CLI），允许您浏览代码空间的文件和目录（又名文件夹），编译代码并运行程序。左边是你的文件“资源管理器”，一个图形用户界面（GUI），通过它你还可以浏览代码空间的文件和目录。
+首先在终端窗口中单击，然后自行执行。您应该发现它的“提示”类似于以下内容。cd
+$
+在该终端窗口内单击，然后键入
+mkdir hello
+后跟 Enter，以便在代码空间中调用一个目录。请注意不要忽视和或任何其他角色之间的空间！hellomkdirhello
+在这里，执行（即运行）命令意味着将其键入到终端窗口中，然后单击Enter。命令是“区分大小写的”，因此当您表示小写时，请确保不要键入大写字母，反之亦然。
+现在执行
+cd hello
+将自己移入（即打开）该目录。您的提示现在应如下所示。
+hello/ $
+如果没有，请回溯您的步骤，看看您是否可以确定您出错的地方！
+我们让你写你的第一个程序吗？执行
+code hello.c
+创建一个名为 的新文件，该文件应在代码空间的文本编辑器中自动打开。使用 command-S（在 macOS 上）或 control-S（在 Windows 上）保存文件后，该文件也应该出现在代码空间的资源管理器中。hello.c
+继续编写您的第一个程序，方法是将这些行精确地键入到：hello.c
+#include <stdio.h>
+
+int main(void)
+{
+    printf("hello, world\n");
+}
+请注意 VS Code 如何在键入时添加“语法突出显示”（即颜色），尽管 VS Code 的颜色选择可能与此问题集的颜色不同。这些颜色实际上并没有保存在文件本身的内部;它们只是由VS Code添加的，以使某些语法脱颖而出。如果您没有从一开始就保存文件，VS Code 将不知道（根据文件名的扩展名）您正在编写 C 代码，在这种情况下，这些颜色将不存在。hello.c
+列出文件
+接下来，在终端窗口中，立即在提示符（）的右侧执行hello/ $
+ls
+你应该看到只是？这是因为您刚刚列出了文件夹中的文件。特别是，您执行了一个名为 的命令，该命令是“list”的简写。（这是一个非常常用的命令，其作者只是为了保存击键而调用它。有意义？hello.chellolslshe
+编译程序
+现在，在我们执行程序之前，回想一下，我们必须使用编译器编译它，将其从源代码转换为机器代码（即零和一）。执行以下命令即可执行此操作：hello.c
+make hello
+然后再次执行此命令：
+ls
+这一次，您不仅应该看到而且也应该列出来吗？现在，您已将 中的源代码转换为 机器代码。hello.chellohello.chello
+现在通过执行以下命令来执行程序本身。
+./hello
+你好，世界，确实！
+获取用户输入
+Suffice it to say, no matter how you compile or execute this program, it only ever prints . Let’s personalize it a bit, just as we did in class.hello, world
+Modify this program in such a way that it first prompts the user for their name and then prints , where is their actual name.hello, so-and-soso-and-so
+As before, be sure to compile your program with:
+make hello
+And be sure to execute your program, testing it a few times with different inputs, with:
+./hello
+Walkthrough
+Here’s a “walkthrough” (i.e., tour) of this problem, if you’d like a verbal overview of what to do too!
+Hints
+Don’t recall how to prompt the user for their name?
+Recall that you can use as follows, storing its return value in a variable called of type .get_stringnamestring
+string name = get_string("What's your name? ");
+Don’t recall how to format a string?
+Don’t recall how to join (i.e., concatenate) the user’s name with a greeting? Recall that you can use not only to print but to format a string (hence, the in ), a la the below, wherein is a .printffprintfnamestring
+printf("hello, %s\n", name);
+Use of undeclared identifier?
+Seeing the below, perhaps atop other errors?
+error: use of undeclared identifier 'string'; did you mean 'stdin'?
+Recall that, to use , you need to include (in which is declared) atop a file, as with:get_stringcs50.hget_string
+#include <cs50.h>
+How to Test Your Code
+Execute the below to evaluate the correctness of your code using , a command-line program that will output happy faces whenever your code passes CS50’s automated tests and sad faces whenever it doesn’t! But be sure to compile and test it yourself as well!check50
+check50 cs50/problems/2022/x/hello
+Execute the below to evaluate the style of your code using , a command-line program that will output additions (in green) and deletions (in red) that you should make to your program in order to improve its style. If you have trouble seeing those colors, supports other modes too!style50style50
+style50 hello.c
+如何提交
+在您的终端中，执行以下命令以提交您的作品。
+submit50 cs50/problems/2022/x/hello
