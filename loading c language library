@@ -1,0 +1,41 @@
+Cultural shock 2 
+在vscode上面，加载CS50的c 语言库
+
+1.下载后加载，Mac，Linux，libcs50-10.1.1.zip      失败
+
+$ cd (1)C:\Users\马沙\Downloads、libcs50-10.1.1
+bash: syntax error near unexpected token `('
+$ cd C:\Users\马沙\Downloads、libcs50-10.1.1
+bash: cd: C:Users马沙Downloads、libcs50-10.1.1: No such file or directory
+$ D:\cs50\libcs50-10.1.1
+bash: D:cs50libcs50-10.1.1: command not found
+$ cd D:\cs50\libcs50-10.1.1
+bash: cd: D:cs50libcs50-10.1.1: No such file or directory
+$ cd libcs50-*
+
+2，Ubuntu， 成功
+$  curl -s https://packagecloud.io/install/repositories/cs50/repo/script.deb.sh | sudo bash
+Detected operating system as Ubuntu/jammy.
+Checking for curl...
+Detected curl...
+Checking for gpg...
+Detected gpg...
+Running apt-get update... done.
+Installing apt-transport-https... done.
+Installing /etc/apt/sources.list.d/cs50_repo.list...done.
+Importing packagecloud gpg key... done.
+Running apt-get update... done.
+
+The repository is setup! You can now install packages.
+$  sudo apt install libcs50
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+libcs50 is already the newest version (11.0.1).
+0 upgraded, 0 newly installed, 0 to remove and 10 not upgraded.
+$ 
+3，what’s the means of Ubuntu and Fedora ？
+都是 Linux 下的同一功能产品，随个人喜好。
+Ubuntu : 优点: 友好的界面设计,十分强大的中文社区缺点:开放性相对于Fedora要差.(因为封装的更好)Fedora 优点: 强大的服务器级的应用软件(其推荐的)缺点: 要"感化"普通用户还需要点时间个人觉得Ubuntu 有些"Windows"化 什么事情都是开发者做好了.而Fedora 更具灵活性 用户真正做主的时机应该要早些.就这两者而言 Fedora 应该更能代表Linux的未来.
+ 
+
